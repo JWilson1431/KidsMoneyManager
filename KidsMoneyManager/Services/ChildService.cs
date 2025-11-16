@@ -6,6 +6,28 @@ namespace KidsMoneyManager.Services
     {
         private List<Child> _children = new List<Child>();
 
+        public ChildService()
+        {
+            Child child1 = new Child()
+            {
+                Id = 1,
+                Name = "Lily",
+                Avatar = "/images/avatars/stitch.png",
+                BankBalance = 0,
+                InterestRate = 0.02m
+            };
+            Child child2 = new Child()
+            {
+                Id = 2,
+                Name = "Nicky",
+                Avatar = "/images/avatars/otter2.png",
+                BankBalance = 0,
+                InterestRate = 0.02m
+            };
+            _children.Add(child1);
+            _children.Add(child2);
+        }
+
         public List<Child> GetAllChildren()
         {
             return _children;

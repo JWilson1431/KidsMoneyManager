@@ -1,10 +1,13 @@
 using KidsMoneyManager.Components;
+using KidsMoneyManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+//Add the child services
+builder.Services.AddSingleton<ChildService>();
 
 var app = builder.Build();
 

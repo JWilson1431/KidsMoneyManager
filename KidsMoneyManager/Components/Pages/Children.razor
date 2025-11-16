@@ -1,0 +1,81 @@
+﻿@using KidsMoneyManager.Services;
+@using KidsMoneyManager.Models;
+
+@page "/children"
+@inject ChildService ChildService
+
+<PageTitle>Children</PageTitle>
+<h3>Children</h3>
+
+
+<style>
+    .child-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: none;
+        border-radius: 15px;
+    }
+
+        .child-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+    .avatar-container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 50%;
+        padding: 5px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid white;
+    }
+
+    .balance-badge {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #10b981;
+    }
+</style>
+
+<div class="row">
+    @foreach (var child in children)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card child-card shadow-sm">
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <div class="avatar-container">
+                            <img src="@child.Avatar" alt="@child.Name" class="avatar-img" />
+                        </div>
+                    </div>
+                    <h5 class="card-title text-center fw-bold">@child.Name</h5>
+                    <hr />
+                    <div class="text-center mb-2">
+                        <div class="balance-badge">@child.BankBalance.ToString("C")</div>
+                        <small class="text-muted">Current Balance</small>
+                    </div>
+                    <p class="card-text text-center">
+                        <small><strong>Interest Rate:</strong> @child.InterestRate.ToString("P")</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<Child> children = new List<Child>();
+    private ChildService childService = new ChildService();
+
+    protected override void OnInitialized()
+    {
+        children = childService.GetAllChildren();
+    }
+}
