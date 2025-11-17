@@ -12,7 +12,8 @@ namespace KidsMoneyManager.Services
             {
                 Id = 1,
                 Name = "Lily",
-                Avatar = "/images/avatars/stitch.png",
+                Avatar = "/images/avatars/stitch2.jpg",
+                Color = "#F590C7",
                 BankBalance = 0,
                 InterestRate = 0.02m
             };
@@ -20,6 +21,7 @@ namespace KidsMoneyManager.Services
             {
                 Id = 2,
                 Name = "Nicky",
+                Color = "#549C48",
                 Avatar = "/images/avatars/otter2.png",
                 BankBalance = 0,
                 InterestRate = 0.02m

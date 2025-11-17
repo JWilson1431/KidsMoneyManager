@@ -21,8 +21,8 @@
         }
 
     .avatar-container {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
         margin: 0 auto;
         border-radius: 50%;
         padding: 5px;
@@ -33,8 +33,9 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        object-fit: cover;
+        object-fit: contain;
         border: 3px solid white;
+        background: white;
     }
 
     .balance-badge {
@@ -51,7 +52,7 @@
             <div class="card child-card shadow-sm">
                 <div class="card-body">
                     <div class="text-center mb-3">
-                        <div class="avatar-container">
+                        <div class="avatar-container" style="background: linear-gradient(135deg, @child.Color 0%, #764ba2 100%);">
                             <img src="@child.Avatar" alt="@child.Name" class="avatar-img" />
                         </div>
                     </div>
